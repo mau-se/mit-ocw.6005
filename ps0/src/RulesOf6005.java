@@ -22,8 +22,8 @@ public class RulesOf6005 {
 	 * @return true if <name> appears in bold in Course Elements section. Ignores case (capitalization). 
 	 * Example: "Lectures" and "lectures" will both return true.
 	 */
-	public static boolean hasFeature(String name){
-		// Convert all to lower case
+	public static boolean hasFeature(String name) {
+		//Create list of course elements
 		List<String> listOfFeatures = new ArrayList<String>();
 		String s = name.toLowerCase();
 	
@@ -78,7 +78,7 @@ public class RulesOf6005 {
 	 * @return a new instance of a Calendar with the date and time set to when the assignment will be due
 	 */ 
 	public static Calendar extendDeadline(int request, int budget, Calendar duedate){
-		// Check to make sure request does not exceed budget
+		// Check to make sure request does not exceed budget and limit
         	int granted = (request > budget) ? budget: request;
         	granted = (granted > 3) ? 3: granted;
         	Calendar newDuedate = duedate;
