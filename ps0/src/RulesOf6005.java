@@ -22,11 +22,9 @@ public class RulesOf6005 {
 	 * @return true if <name> appears in bold in Course Elements section. Ignores case (capitalization). 
 	 * Example: "Lectures" and "lectures" will both return true.
 	 */
-	// Create list with course elements
-	public static List<String> listOfFeatures = new ArrayList<String>();
-	
 	public static boolean hasFeature(String name){
 		// Convert all to lower case
+		List<String> listOfFeatures = new ArrayList<String>();
 		String s = name.toLowerCase();
 	
 		listOfFeatures.add("lectures");
@@ -41,11 +39,7 @@ public class RulesOf6005 {
 		listOfFeatures.add("quizzes");
 		
 		// Check if list contains string
-		if(listOfFeatures.contains(s)) {
-			return true;
-		}	else {
-			return false; 
-		}
+		return listOfFeatures.contains(s);
 	}
 	
 	
