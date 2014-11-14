@@ -58,7 +58,7 @@ public class RulesOf6005 {
 	 */
 	public static int computeGrade(int quiz, int pset, int project, int participation) {		
 		// Calculate final grade based on course information
-        return (int) Math.round((0.2*quiz) + (0.4*pset) + (0.3*project) + (0.1*participation));
+        	return (int) Math.round((0.2*quiz) + (0.4*pset) + (0.3*project) + (0.1*participation));
    
 	}
 	
@@ -79,13 +79,13 @@ public class RulesOf6005 {
 	 */ 
 	public static Calendar extendDeadline(int request, int budget, Calendar duedate){
 		// Check to make sure request does not exceed budget
-        int granted = (request > budget) ? budget: request;
-        granted = (granted > 3) ? 3: granted;
-        Calendar newDuedate = duedate;
-        // Add request or budget to due date after check
-        newDuedate.add(Calendar.DAY_OF_MONTH, granted);
+        	int granted = (request > budget) ? budget: request;
+        	granted = (granted > 3) ? 3: granted;
+        	Calendar newDuedate = duedate;
+        	// Add request or budget to due date after check
+        	newDuedate.add(Calendar.DAY_OF_MONTH, granted);
         
-        return newDuedate;
+        	return newDuedate;
 	}
 	
 	
