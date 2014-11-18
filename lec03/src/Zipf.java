@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -14,8 +16,8 @@ public class Zipf {
      * @throws NoWordException when s has no words
      */
     public static String mostCommonWord(String s) 
-            throws NoWordsException {
-        throw new RuntimeException("not implemented");
+            throws NoWordsException {        
+        return findMax(countOccurrences(splitIntoWords(s)));
     }
     
     // To implement mostCommonWord, we'll use three helper methods:
@@ -32,7 +34,14 @@ public class Zipf {
     //  to lowercase.  e.g.
     //   splitIntoWords("a B Cc b") returns ["a", "b", "cc", "b"].
     private static List<String> splitIntoWords(String s) {
-        throw new RuntimeException("not implemented");
+        List<String> listOfWords = new ArrayList<String>();
+        String[] ArrayOfWords = s.split("([.,!?:;'\"-]|\\s)+");
+        for(String word: ArrayOfWords) {
+        	String lowerCase = word.toLowerCase();
+        	listOfWords.add(lowerCase);
+        }
+        
+        return listOfWords;
     }
     
     // Count the number of occurrences of each element in a list.
@@ -40,7 +49,14 @@ public class Zipf {
     // @return map m such that m[s] == k if s occurs k times in l, while
     //      m[s] == null if s never occurs in l.
     private static Map<String, Integer> countOccurrences(List<String> l) {
-        throw new RuntimeException("not implemented");
+        Map<String, Integer> mappedList = new HashMap<String, Integer>();
+        
+        for(String s:l) {
+        	Integer count = mappedList.get(s);
+        	mappedList.put(s, (count == null) ? 1: count + 1);
+        }
+             
+        return mappedList;
     }
     
     // Find a key with maximum value.
@@ -48,7 +64,17 @@ public class Zipf {
     // @return s such that m[s] >= m[t] for all other keys t in the map,
     //     or null if no such s exists
     private static String findMax(Map<String,Integer> m) {
-        throw new RuntimeException("not implemented");        
+    	int maxValue = 0;
+    	String maxString = null;
+    	
+        for(String s: m.keySet()) {
+        	if(m.get(s) > maxValue) {
+        		maxValue = m.get(s);
+        		maxString = s;
+        	}
+        }
+
+        return maxString;
     }
     
     
@@ -56,6 +82,10 @@ public class Zipf {
      * Exception thrown by mostCommonWord() when it can't find a word.
      */
     public static class NoWordsException extends Exception {
-        
+    }
+    
+    public static void main(String args[]) throws NoWordsException {
+    	String s = "One, two, three, one, one, two";
+    	System.out.println( "Most common word is: " + Zipf.mostCommonWord(s));
     }
 }
