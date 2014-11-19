@@ -16,7 +16,13 @@ public class Zipf {
      * @throws NoWordException when s has no words
      */
     public static String mostCommonWord(String s) 
-            throws NoWordsException {        
+            throws NoWordsException {
+        String[] checkForWords = s.split("([.,!?:;'\"-]|\\s)+");
+    	
+    	if(checkForWords.length == 0 || s.isEmpty()) {
+    		throw new NoWordsException ();
+    	}
+    	
         return findMax(countOccurrences(splitIntoWords(s)));
     }
     
@@ -82,6 +88,7 @@ public class Zipf {
      * Exception thrown by mostCommonWord() when it can't find a word.
      */
     public static class NoWordsException extends Exception {
+        private static final long serialVersionUID = 1L;
     }
     
     public static void main(String args[]) throws NoWordsException {
