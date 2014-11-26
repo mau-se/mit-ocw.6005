@@ -42,7 +42,7 @@ public class BaseTranslator {
     	}
     	//Copy array since digits is immutable
     	int[] digitsToBase = new int[precisionB], 
-    		  newDigits = Arrays.copyOf(digits, digits.length);
+    	         newDigits = Arrays.copyOf(digits, digits.length);
     	//Algorithm mentioned at specifications
     	for(int i = 0; i < precisionB; i++) {
     		int carry = 0;
