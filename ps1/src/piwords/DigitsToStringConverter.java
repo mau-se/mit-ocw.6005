@@ -21,7 +21,7 @@ public class DigitsToStringConverter {
         // TODO: Implement (Problem 3.b)
     	//Check 2
     	if((alphabet.length) != base) { return null; }
-    	String digitsToString = "";
+    	StringBuilder digitsToString = new StringBuilder();
     	
     	for(int i = 0; i < digits.length; i++) {
     		//Check1
@@ -29,9 +29,10 @@ public class DigitsToStringConverter {
     			return null;
     		}
     		//Concatenate string with index value
-    		digitsToString += alphabet[digits[i]]; 
+    		digitsToString.append(alphabet[digits[i]]); 
     	}
+    	String finalString = digitsToString.toString();
     	
-        return digitsToString;
+        return finalString;
     }
 }

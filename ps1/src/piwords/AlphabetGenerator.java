@@ -61,11 +61,11 @@ public class AlphabetGenerator {
     	
     	int total = 0, index = 0;
     	double cdf = 0.0;
-    	String allChars = "";
+    	StringBuilder allChars = new StringBuilder();
     	char[] mapOfChars = new char[base];
     	Map<Character, Integer> numberOfCharacters = new HashMap<Character, Integer>();
     	
-    	for(String s:trainingData) { allChars += s.replaceAll("[^a-z]", ""); }
+    	for(String s:trainingData) { allChars.append(s.replaceAll("[^a-z]", "")); }
     	for(int i = 0; i < (allChars.length()); i++) {
     		char key = allChars.charAt(i);
     		Integer count = numberOfCharacters.get(key);

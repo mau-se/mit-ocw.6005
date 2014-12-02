@@ -16,7 +16,7 @@ public class PiGenerator {
     public static int[] computePiInHex(int precision) {
         // TODO: Implement (Problem 1.d)
     	//Check 1
-    	if(precision < 0) { return null; }
+    	if(precision < 0) {	return null; }
     	
     	int[] piInHex = new int[precision];
     	//Fill with fraction digits of pi in hex
