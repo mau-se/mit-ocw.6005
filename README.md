@@ -10,4 +10,5 @@ My solutions to Mit's OCW 6.005 course. I've coded with Java before but I hope t
 2014/11/18 - Read lec03 and implemented Zipf
 
 2014/11/25 - Completed ps1
+
 ----Holiday break----
